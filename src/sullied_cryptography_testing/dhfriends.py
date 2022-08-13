@@ -2,7 +2,7 @@ import json
 import secrets
 import base64
 from functools import reduce
-from sullied_cryptography_testing.diffiehellman import *
+from sullied_cryptography_testing import diffiehellman as dh
 from sullied_cryptography_testing.cryptowrapper import encryptAES, decryptAES, sha1, sha256
 from sullied_cryptography_testing import srp
 from sullied_cryptography_testing import util
@@ -12,8 +12,8 @@ def challenge33(p, g):
 	a, A = dh.getKeyPair(p, g)
 	b, B = dh.getKeyPair(p, g)
 
-	s1 = getSession(a, B, p)
-	s2 = getSession(b, A, p)
+	s1 = dh.getSession(a, B, p)
+	s2 = dh.getSession(b, A, p)
 
 	key_material = sha256(s1.to_bytes(1536>>3, 'little'))
 	k1 = key_material[:int(len(key_material)/2)]
@@ -28,7 +28,7 @@ class EchoServer():
 			priv, pub = dh.getKeyPair(message['p'], message['g'])
 			self.priv = priv
 			self.pub = pub
-			self.session = getSession(self.priv, message['A'], message['p'])
+			self.session = dh.getSession(self.priv, message['A'], message['p'])
 			#print('Server session:', self.session)
 			return json.dumps({'B': self.pub})
 		elif 'ciphertext' in message:
@@ -45,8 +45,8 @@ class EchoServer():
 
 class Client():
 	def __init__(self, server):
-		self.p = RFC3526_1536_p
-		self.g = RFC3526_1536_g
+		self.p = dh.RFC3526_1536_p
+		self.g = dh.RFC3526_1536_g
 		self.priv, self.pub = dh.getKeyPair(self.p, self.g)
 		self.server = server
 
@@ -57,7 +57,7 @@ class Client():
 		response = json.loads(self.server.getResponse(json.dumps(client_hello)))
 #		print('Client <- Server\n{}'.format(response))
 
-		self.session = getSession(self.priv, response['B'], self.p)
+		self.session = dh.getSession(self.priv, response['B'], self.p)
 
 	def send(self, message):
 		shared_key = sha1(self.session.to_bytes(192, 'little'))[:16]

@@ -64,12 +64,12 @@ class TestDiffieHellmanAndFriends(unittest.TestCase):
 		self.assertTrue(dhfriends.challenge37(N, g, k, email, password, N))
 		self.assertTrue(dhfriends.challenge37(N, g, k, email, password, 2 * N))
 
-	def test_challenge38(self):
-		"""Offline dictionary attack on simplified SRP
-		PAKE algorithms are meant to prevent MITM attackers from offline brute force
-		password guessing
-		"""
-		email = 'user@example.com'
-		password_list = util.generateRandomPasswords(20)
-	
-		self.assertTrue(dh.challenge38(email, password_list))
+#	def test_challenge38(self):
+#		"""Offline dictionary attack on simplified SRP
+#		PAKE algorithms are meant to prevent MITM attackers from offline brute force
+#		password guessing
+#		"""
+#		email = 'user@example.com'
+#		password_list = util.generateRandomPasswords(20)
+#
+#		self.assertTrue(dh.challenge38(email, password_list))

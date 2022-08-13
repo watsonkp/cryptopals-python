@@ -4,10 +4,10 @@ from sullied_cryptography_testing import cryptowrapper
 
 def challenge9():
 	block = 'AAAABBBBCCCC'.encode('utf-8')
-	return ciphers.padWithPKCS7(block)
+	return ciphers.padWithPKCS7(block, 16)
 
 def challenge10():
-	with open('./data/10.txt') as f:
+	with open('./tests/data/10.txt') as f:
 		ciphertext = base64.b64decode(f.read())
 
 	iv = 16 * b'\x00'
