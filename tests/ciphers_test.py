@@ -1,6 +1,6 @@
 import unittest
-import ciphers
-import cryptowrapper
+from sullied_cryptography_testing import ciphers
+from sullied_cryptography_testing import cryptowrapper
 from functools import reduce
 
 class TestCiphers(unittest.TestCase):

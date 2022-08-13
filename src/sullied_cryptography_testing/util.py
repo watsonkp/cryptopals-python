@@ -1,7 +1,7 @@
-from functools import reduce
-import ciphers
 import string
 import secrets
+from functools import reduce
+from sullied_cryptography_testing import ciphers
 
 def printHex(bs):
 	print(' '.join(['{:02x}'.format(b) for b in bs]))

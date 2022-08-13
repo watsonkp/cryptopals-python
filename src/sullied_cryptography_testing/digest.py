@@ -1,5 +1,5 @@
-from cryptowrapper import sha256
-from util import xor
+from sullied_cryptography_testing.cryptowrapper import sha256
+from sullied_cryptography_testing.util import xor
 
 # https://tools.ietf.org/html/rfc2104
 def hmac_sha256(key, message):

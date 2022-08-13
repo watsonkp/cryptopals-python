@@ -1,5 +1,5 @@
 import unittest
-import digest
+from sullied_cryptography_testing import digest
 
 class TestDigest(unittest.TestCase):
 	"""Compare test key and message from RFC2104 with CyberChef output."""

@@ -1,6 +1,6 @@
 import base64
-import cryptowrapper
-import ciphers
+from sullied_cryptography_testing import cryptowrapper
+from sullied_cryptography_testing import ciphers
 
 def challenge7():
 	with open('./data/7.txt') as f:

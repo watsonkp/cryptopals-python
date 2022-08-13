@@ -1,5 +1,5 @@
 import secrets
-import util
+from sullied_cryptography_testing import util
 
 def decryptECB(data, decrypt_fn):
 	blocks = [data[i:i+16] for i in range(0, len(data), 16)]

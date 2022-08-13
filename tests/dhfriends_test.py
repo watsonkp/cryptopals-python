@@ -1,8 +1,8 @@
 import unittest
-import dhfriends
-import diffiehellman as dh
 import secrets
-import util
+from sullied_cryptography_testing import dhfriends
+from sullied_cryptography_testing import diffiehellman as dh
+from sullied_cryptography_testing import util
 
 class TestDiffieHellmanAndFriends(unittest.TestCase):
 	def test_challenge33(self):

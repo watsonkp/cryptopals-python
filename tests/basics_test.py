@@ -1,7 +1,7 @@
 import unittest
-import blockcrypto
+from sullied_cryptography_testing import basics
 
-SOLUTION_10 = """I'm back and I'm ringin' the bell 
+SOLUTION_7 = """I'm back and I'm ringin' the bell 
 A rockin' on the mike while the fly girls yell 
 In ecstasy in the back of me 
 Well that's my DJ Deshay cuttin' all them Z's 
@@ -79,12 +79,9 @@ Play that funky music Come on, Come on, let me hear
 Play that funky music white boy you say it, say it 
 Play that funky music A little louder now 
 Play that funky music, white boy Come on, Come on, Come on 
-Play that funky music """
+Play that funky music 
+"""
 
-class TestBlockCiphers(unittest.TestCase):
-	def test_challenge9(self):
-		self.assertEqual(blockcrypto.challenge9(), b'AAAABBBBCCCC\x04\x04\x04\x04')
-
-	def test_challenge10(self):
-		self.assertEqual(blockcrypto.challenge10(), SOLUTION_10)
-
+class TestBasics(unittest.TestCase):
+	def test_challenge7(self):
+		self.assertEqual(basics.challenge7(), SOLUTION_7)

@@ -1,8 +1,8 @@
 import secrets
 import json
-import diffiehellman
-from cryptowrapper import sha256
-from digest import hmac_sha256
+from sullied_cryptography_testing import diffiehellman
+from sullied_cryptography_testing.cryptowrapper import sha256
+from sullied_cryptography_testing.digest import hmac_sha256
 
 # RFC 5054
 # https://tools.ietf/org/html/rfc5054

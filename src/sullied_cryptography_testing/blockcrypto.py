@@ -1,6 +1,6 @@
 import base64
-import ciphers
-import cryptowrapper
+from sullied_cryptography_testing import ciphers
+from sullied_cryptography_testing import cryptowrapper
 
 def challenge9():
 	block = 'AAAABBBBCCCC'.encode('utf-8')

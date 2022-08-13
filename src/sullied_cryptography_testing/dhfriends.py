@@ -1,13 +1,12 @@
-import diffiehellman as *
-from cryptowrapper import encryptAES, decryptAES, sha1, sha256
-from functools import reduce
-import srp
-import util
-import ciphers
 import json
-import util
 import secrets
 import base64
+from functools import reduce
+from sullied_cryptography_testing.diffiehellman import *
+from sullied_cryptography_testing.cryptowrapper import encryptAES, decryptAES, sha1, sha256
+from sullied_cryptography_testing import srp
+from sullied_cryptography_testing import util
+from sullied_cryptography_testing import ciphers
 
 def challenge33(p, g):
 	a, A = dh.getKeyPair(p, g)
