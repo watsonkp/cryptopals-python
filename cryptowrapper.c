@@ -8,7 +8,7 @@
 // nm -D libcrypto.so | grep -i hmac | less
 
 void handleErrors(char* message) {
-	printf(message);
+	printf("%s", message);
 }
 
 void printHex(const unsigned char* bytes, unsigned int len) {
