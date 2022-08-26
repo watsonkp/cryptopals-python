@@ -21,3 +21,6 @@ def printable(s):
 
 def generateRandomPasswords(n):
 	return [secrets.token_hex(32) for _ in range(n)]
+
+def bytesToInt(bs):
+	return int('0x' + ''.join(['{:02x}'.format(b) for b in bs]), 16)

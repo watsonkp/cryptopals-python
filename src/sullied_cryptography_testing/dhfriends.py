@@ -221,20 +221,3 @@ def challenge37(N, g, k, email, password, A):
 	server.addUser(email, password)
 	client = srp.MaliciousClient(server)
 	return client.authenticate(email, A)
-
-def challenge38(password_list):
-	"""Offline dictionary attack on simplified SRP
-	PAKE algorithms are meant to prevent MITM attackers from offline brute force
-	password guessing
-	"""
-	print('Challenge 38')
-	N = dh.RFC3526_1536_p
-	g = dh.RFC3526_1536_g
-	k = 3
-
-	server = srp.MITM(N, g, k, password_list)
-	client = srp.Client(server, N, g, k)
-	password = secrets.choice(password_list)
-	client.authenticate('user@example.com', password)
-
-	return ('user@example.com', password) in server.credentials
