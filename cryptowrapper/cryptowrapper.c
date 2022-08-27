@@ -1,8 +1,11 @@
 #include "stdio.h"
+#include "string.h"
 #include "openssl/conf.h"
 #include "openssl/evp.h"
 #include "openssl/err.h"
 #include "openssl/aes.h"
+#include "openssl/bn.h"
+#include "openssl/rand.h"
 
 // nm -D libcrypto.so | grep EVP | less
 // nm -D libcrypto.so | grep -i hmac | less
@@ -16,6 +19,44 @@ void printHex(const unsigned char* bytes, unsigned int len) {
 		printf("%02x", bytes[i]);
 	}
 	printf("\n");
+}
+
+// Generate a pseudo-random number that is prime with a negligible error.
+// The number will have the specified bit length with the top two bits set.
+int generatePrime(int bits, char ** hex_string, int *hex_string_len, char **error_string, int *error_length) {
+	// Ensure the random number generator is seeded.
+	if (!RAND_poll()) {
+		*error_string = "ERROR: RAND_poll() != 0: Failed to seed the random number generator";
+		*error_length = strlen(*error_string);
+		return 1;
+	}
+
+	// Attempt to generate a random prime number
+	// TODO: BN_secure_new()
+	BIGNUM *prime = BN_new();
+	if (prime == NULL) {
+		*error_string = "ERROR: BN_new() == NULL: Failed to allocate a big number.";
+		*error_length = strlen(*error_string);
+		return 1;
+	}
+	int safe = 1;
+	BIGNUM *add = NULL;
+	BIGNUM *rem = NULL;
+	BN_GENCB *callback = NULL;
+	if (!BN_generate_prime_ex(prime, bits, safe, add, rem, callback)) {
+		*error_string = "ERROR: BN_generate_prime() != 0: Failed to generate a random prime.";
+		*error_length = strlen(*error_string);
+		return 1;
+	}
+
+	// Encode the prime number as a hexadecimal string representation in the provided pointer.
+	*hex_string = BN_bn2hex(prime);
+	*hex_string_len = strlen(*hex_string);
+
+	// TODO: BN_clear_free(prime);
+	*error_string = "";
+	*error_length = strlen(*error_string);
+	return 0;
 }
 
 void sha1(const unsigned char* message, size_t message_len, unsigned char** digest, unsigned int *digest_len) {

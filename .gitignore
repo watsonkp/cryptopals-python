@@ -1,2 +1,2 @@
 __pycache__
-libcryptowrapper.so
+libcryptowrapper*.so
