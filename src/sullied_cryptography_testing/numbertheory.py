@@ -38,7 +38,7 @@ def gcd(x, y):
 
 def bezout(x, y):
 	"""
-	Computes the greatest common divisor of two positive integers as well as a and b such that ax + by = gcd(x, y), Bezout's identity, with Euclid's extended algorithm.
+	Computes the greatest common divisor of two positive integers as well as a and b such that ax + by = gcd(x, y), Bézout's identity, with Euclid's extended algorithm.
 	Euclid's Algorithm specified by Knuth in The Art of Computer Programming Volume 1 Page 13.
 	:param x: The first positive integer.
 	:type x: int
