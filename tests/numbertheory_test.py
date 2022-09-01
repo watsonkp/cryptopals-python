@@ -22,3 +22,4 @@ class TestNumberTheory(unittest.TestCase):
 		Test the computation of the modular multiplicative inverse.
 		"""
 		self.assertEqual(11, numbertheory.invmod(7, 19))
+		self.assertEqual(2753, numbertheory.invmod(17, 3120))

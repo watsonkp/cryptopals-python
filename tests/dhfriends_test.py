@@ -3,6 +3,7 @@ import secrets
 from sullied_cryptography_testing import dhfriends
 from sullied_cryptography_testing import srp
 from sullied_cryptography_testing import diffiehellman as dh
+from sullied_cryptography_testing import rsa
 from sullied_cryptography_testing import util
 
 class TestDiffieHellmanAndFriends(unittest.TestCase):
@@ -89,3 +90,26 @@ class TestDiffieHellmanAndFriends(unittest.TestCase):
 		self.assertTrue(client.authenticate(mitm_server, email, password))
 		# Fail to guess a password not included in the wordlist with brute force
 		self.assertFalse(client.authenticate(mitm_server, email, 'nonsense'))
+	def test_challenge39(self):
+		"""
+		Implement RSA.
+		"""
+		peer = rsa.Peer()
+
+		# Encrypt and decrypt a simple integer message
+		message = 42
+		ciphertext = peer.encrypt(message)
+		plaintext = peer.decrypt(ciphertext)
+		self.assertEqual(message, plaintext)
+
+		# Encrypt and decrypt a string
+		message = "The quick brown fox jumped over the lazy dog."
+		ciphertext = peer.encrypt(message)
+		plaintext = util.int_to_bytes(peer.decrypt(ciphertext)).decode('utf-8')
+		self.assertEqual(message, plaintext)
+
+		# Encrypt and decrypt bytes
+		message = b'\xab\ad\x1d\xea'
+		ciphertext = peer.encrypt(message)
+		plaintext = util.int_to_bytes(peer.decrypt(ciphertext))
+		self.assertEqual(message, plaintext)

@@ -24,3 +24,23 @@ def generateRandomPasswords(n):
 
 def bytesToInt(bs):
 	return int('0x' + ''.join(['{:02x}'.format(b) for b in bs]), 16)
+
+def bytes_to_int(bs):
+	"""
+	Convert a bytes value to an integer representation.
+	:param bs: Bytes value to convert.
+	:type bs: int
+	:return: Integer representation.
+	:rtype: int
+	"""
+	return int.from_bytes(bs, 'big')
+
+def int_to_bytes(x):
+	"""
+	Convert an integer value to a bytes representation.
+	:param x: Integer value to convert.
+	:type x: int
+	:return: Bytes representation.
+	:rtype: bytes
+	"""
+	return x.to_bytes((x.bit_length() + 7) // 8, 'big')
