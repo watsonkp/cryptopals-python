@@ -3,7 +3,7 @@ from sullied_cryptography_testing import numbertheory
 from sullied_cryptography_testing import util
 
 class PublicKey:
-	def __init__(self, e, p, q):
+	def __init__(self, e, p=None, q=None):
 		"""Create RSA public key
 		:param e: Public exponent. A small odd value.
 		:type e: int
@@ -12,6 +12,9 @@ class PublicKey:
 		:param q: Random prime integer.
 		:type q: int
 		"""
+		if p == None and q == None:
+			p = cryptowrapper.generatePrime(1024)
+			q = cryptowrapper.generatePrime(1024)
 		self.e = e
 		self.n = p * q
 
@@ -25,6 +28,7 @@ class PrivateKey:
 		:param q: Random prime integer.
 		:type q: int
 		"""
+
 		n = p * q
 		# totient
 		e_t = (p - 1) * (q - 1)
@@ -45,7 +49,7 @@ class Peer:
 		self.public_key = PublicKey(e, p, q)
 		self.private_key = PrivateKey(e, p, q)
 
-	def encrypt(self, message):
+	def encrypt(self, message, public_key=None):
 		"""Encrypt a message using the public key.
 		:param message: Message to encrypt.
 		:type message: int, string or bytes
@@ -56,7 +60,12 @@ class Peer:
 			message = util.bytes_to_int(message.encode('utf-8'))
 		elif isinstance(message, bytes):
 			message = util.bytes_to_int(message)
-		return pow(message, self.public_key.e, mod=self.public_key.n)
+
+		if public_key != None:
+			cipher_text = pow(message, public_key.e, mod=public_key.n)
+		else:
+			cipher_text = pow(message, self.public_key.e, mod=self.public_key.n)
+		return cipher_text
 
 	def decrypt(self, ciphertext):
 		"""Decrypt a message using the private key.
