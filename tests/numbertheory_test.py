@@ -23,3 +23,9 @@ class TestNumberTheory(unittest.TestCase):
 		"""
 		self.assertEqual(11, numbertheory.invmod(7, 19))
 		self.assertEqual(2753, numbertheory.invmod(17, 3120))
+
+	def test_chinese_remainder_theorem(self):
+		"""
+		Test the use of the Chinese Remainder Theorem to solve a system of 3 equations.
+		"""
+		self.assertEqual(numbertheory.chinese_remainder_theorem([0, 3, 4], [3, 4, 5]), 39)

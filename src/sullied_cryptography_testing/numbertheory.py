@@ -66,3 +66,28 @@ def bezout(x, y):
 		t = b_prime
 		b_prime = b
 		b = t - quotient * b
+
+def chinese_remainder_theorem(residue, modulus):
+	"""
+	Implementation of the Chinese Remainder Theorem for a 3 equation system.
+	Discovered by Sun Tsǔ around 350 CE according to Concrete Mathetmatics by Graham, Knuth and Patashnik on page 126.
+	:param residue: List of 3 integers each representing a unique residue.
+        :type residue: [int]
+	:param modulus: List of 3 integers each representing a unique modulus.
+        :type modulus: [int]
+        :raises ValueError: Raised when either residue or modulus does not contain 3 values.
+        :return: The solution to the system of equations.
+        :rtype: int
+	"""
+	if len(residue) != 3 or len(modulus) != 3:
+		raise ValueError("Implementation can only handle systems of 3 equations. Residues: {} != 3 or Modulus: {} != 3".format(len(residue), len(modulus)))
+
+	m_s_0 = modulus[1] * modulus[2]
+	m_s_1 = modulus[0] * modulus[2]
+	m_s_2 = modulus[0] * modulus[1]
+
+	solution = residue[0] * m_s_0 * invmod(m_s_0, modulus[0])\
+		+ residue[1] * m_s_1 * invmod(m_s_1, modulus[1])\
+		+ residue[2] * m_s_2 * invmod(m_s_2, modulus[2])
+	N = modulus[0] * modulus[1] * modulus[2]
+	return solution % N
