@@ -75,3 +75,20 @@ class Peer:
 		:rtype: int
 		"""
 		return pow(ciphertext, self.private_key.d, mod=self.private_key.n)
+
+class Oracle(Peer):
+	"""
+	Unpadded message recovery oracle.
+	"""
+	def __init__(self):
+		super().__init__()
+		self.previous = set()
+
+	def decrypt(self, ciphertext):
+		"""
+		Reject repeated ciphertext.
+		"""
+		if ciphertext in self.previous:
+			return None
+		self.previous.add(ciphertext)
+		return super().decrypt(ciphertext)
