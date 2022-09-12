@@ -20,16 +20,27 @@ let
 			description = "Library simplifying the use of a few OpenSSL functions.";
 		};
 	};
+	gmpwrapper = stdenv.mkDerivation {
+		pname = "gmpwrapper";
+		version = "0.1.0";
+		propagatedBuildInputs = [ gmp ];
+		src = ./gmpwrapper;
+
+		meta = with lib; {
+			homepage = "https://github.com/watsonkp/cryptopals-python";
+			description = "Library simplifying the use of a few GNU Multiple Precision Arithmetic Library functions.";
+		};
+	};
 	cryptopals = python310.pkgs.buildPythonPackage rec {
 		pname = "cryptopals";
 		version = "0.37.0";
 		format = "pyproject";
 		src = ./.;
 
-		propagatedBuildInputs = [ cryptowrapper ];
+		propagatedBuildInputs = [ cryptowrapper gmpwrapper ];
 
 		doCheck = true;
-		checkInputs = [ cryptowrapper python310.pkgs.pytest ];
+		checkInputs = [ cryptowrapper gmpwrapper python310.pkgs.pytest ];
 		checkPhase = "pytest";
 		meta = {
 			homepage = "https://github.com/watsonkp/cryptopals-python";
