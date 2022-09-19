@@ -1,2 +1,5 @@
 __pycache__
 libcryptowrapper*.so
+docs/build/
+docs/source/generated/
+result
