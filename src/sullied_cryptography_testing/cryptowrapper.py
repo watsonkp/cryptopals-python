@@ -1,6 +1,6 @@
 from ctypes import *
 
-CRYPTO_WRAPPER = cdll.LoadLibrary("./libcryptowrapper-0.1.0.so")
+CRYPTO_WRAPPER = cdll.LoadLibrary('libcryptowrapper-0.1.0.so')
 
 class CryptoException(Exception):
 	"""

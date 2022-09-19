@@ -1,6 +1,6 @@
 from ctypes import *
 
-GMP_WRAPPER = cdll.LoadLibrary("./libgmpwrapper-0.1.0.so")
+GMP_WRAPPER = cdll.LoadLibrary("libgmpwrapper-0.1.0.so")
 
 class MathException(Exception):
 	"""
