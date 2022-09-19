@@ -1,6 +1,6 @@
-install: $(name).so
+install: lib$(name).so
 	install -d $(out)/lib/
-	install $(name).so $(out)/lib/
+	install lib$(name).so $(out)/lib/
 
-$(name).so: cryptowrapper.c
-	cc -shared -fPIC cryptowrapper.c -lcrypto -o $(name).so
+lib$(name).so: cryptowrapper.c
+	cc -shared -fPIC cryptowrapper.c -lcrypto -o lib$(name).so

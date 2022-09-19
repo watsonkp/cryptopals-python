@@ -7,7 +7,7 @@ with import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/5c211b47aead
 
 let
 	cryptowrapper = stdenv.mkDerivation {
-		pname = "libcryptowrapper";
+		pname = "cryptowrapper";
 		version = "0.1.0";
 		propagatedBuildInputs = [ openssl ];
 		src = ./cryptowrapper;
@@ -18,7 +18,7 @@ let
 		};
 	};
 	gmpwrapper = stdenv.mkDerivation {
-		pname = "libgmpwrapper";
+		pname = "gmpwrapper";
 		version = "0.1.0";
 		propagatedBuildInputs = [ gmp ];
 		src = ./gmpwrapper;
