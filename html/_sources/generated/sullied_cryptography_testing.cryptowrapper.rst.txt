@@ -1,0 +1,40 @@
+﻿sullied\_cryptography\_testing.cryptowrapper
+============================================
+
+.. automodule:: sullied_cryptography_testing.cryptowrapper
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      decryptAES
+      encryptAES
+      generatePrime
+      hmac
+      sha1
+      sha256
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Exceptions
+
+   .. autosummary::
+   
+      CryptoException
+   
+   
+
+
+

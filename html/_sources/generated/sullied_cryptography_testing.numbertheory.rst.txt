@@ -1,0 +1,32 @@
+﻿sullied\_cryptography\_testing.numbertheory
+===========================================
+
+.. automodule:: sullied_cryptography_testing.numbertheory
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      bezout
+      chinese_remainder_theorem
+      gcd
+      invmod
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

@@ -1,0 +1,43 @@
+﻿sullied\_cryptography\_testing.dhfriends
+========================================
+
+.. automodule:: sullied_cryptography_testing.dhfriends
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      challenge33
+      challenge34Echo
+      challenge34MITM
+      challenge35
+      challenge36
+      challenge37
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Client
+      EchoServer
+      MITMServer
+      MITMServerMaliciousG
+   
+   
+
+   
+   
+   
+
+
+

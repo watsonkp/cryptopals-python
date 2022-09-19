@@ -1,0 +1,29 @@
+﻿sullied\_cryptography\_testing.basics
+=====================================
+
+.. automodule:: sullied_cryptography_testing.basics
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      challenge7
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

@@ -1,0 +1,29 @@
+﻿sullied\_cryptography\_testing.digest
+=====================================
+
+.. automodule:: sullied_cryptography_testing.digest
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      hmac_sha256
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

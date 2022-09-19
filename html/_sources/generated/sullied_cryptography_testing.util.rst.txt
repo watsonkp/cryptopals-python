@@ -1,0 +1,36 @@
+﻿sullied\_cryptography\_testing.util
+===================================
+
+.. automodule:: sullied_cryptography_testing.util
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      bytesToInt
+      bytes_to_int
+      flattenAndUnpad
+      generateRandomPasswords
+      int_to_bytes
+      printHex
+      printable
+      xor
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

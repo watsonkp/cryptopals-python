@@ -1,0 +1,35 @@
+﻿sullied\_cryptography\_testing.ciphers
+======================================
+
+.. automodule:: sullied_cryptography_testing.ciphers
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      decryptCBC
+      decryptECB
+      encryptCBC
+      getBlocks
+      padWithPKCS7
+      unpadWithPKCS7
+      xorBlock
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

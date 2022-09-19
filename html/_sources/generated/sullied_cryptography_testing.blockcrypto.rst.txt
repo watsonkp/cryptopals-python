@@ -1,0 +1,30 @@
+﻿sullied\_cryptography\_testing.blockcrypto
+==========================================
+
+.. automodule:: sullied_cryptography_testing.blockcrypto
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      challenge10
+      challenge9
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

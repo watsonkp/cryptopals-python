@@ -1,0 +1,35 @@
+﻿sullied\_cryptography\_testing.gmpwrapper
+=========================================
+
+.. automodule:: sullied_cryptography_testing.gmpwrapper
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      integer_cube_root
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Exceptions
+
+   .. autosummary::
+   
+      MathException
+   
+   
+
+
+
