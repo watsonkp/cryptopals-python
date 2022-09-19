@@ -40,8 +40,8 @@ let
 		# https://github.com/nixos/nixpkgs/issues/7307
 		# https://discourse.nixos.org/t/screenshot-with-mss-in-python-says-no-x11-library/14534/4
 		prePatch = ''
-			sed -i 's|libcryptowrapper-0.1.0.so|${lib.makeLibraryPath [ cryptowrapper ]}/libcryptowrapper-0.1.0.so|' src/sullied_cryptography_testing/cryptowrapper.py
-			sed -i 's|libgmpwrapper-0.1.0.so|${lib.makeLibraryPath [ gmpwrapper ]}/libgmpwrapper-0.1.0.so|' src/sullied_cryptography_testing/gmpwrapper.py
+                        sed -i 's|lib${cryptowrapper.name}.so|${lib.makeLibraryPath [ cryptowrapper ]}/lib${cryptowrapper.name}.so|' src/sullied_cryptography_testing/cryptowrapper.py
+                        sed -i 's|lib${gmpwrapper.name}.so|${lib.makeLibraryPath [ gmpwrapper ]}/lib${gmpwrapper.name}.so|' src/sullied_cryptography_testing/gmpwrapper.py
 		'';
 
 		doCheck = true;
